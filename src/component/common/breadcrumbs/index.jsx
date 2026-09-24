@@ -81,6 +81,10 @@ const BREADCRUMB_CONFIG = {
     title: "الإشعارات",
     parent: "/controlpanel",
   },
+  "/viewprofile": {
+    title: "الملف الشخصي",
+    parent: "/viewprofile",
+  },
 };
 
 const BreadcrumbComponent = () => {

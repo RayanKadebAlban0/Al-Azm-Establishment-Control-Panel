@@ -10,7 +10,9 @@ export const Styles = styled.div`
   * {
     box-sizing: border-box;
   }
-
+.view-button-text{
+  text-decoration: none;
+}
   button,
   input,
   select {

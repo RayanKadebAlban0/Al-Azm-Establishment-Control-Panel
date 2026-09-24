@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; 
 import axios from "axios";
 import {
   FiEye,
@@ -98,10 +99,11 @@ const CurrentAdmin = () => {
     return true;
   };
 
+ const navigate = useNavigate();
+
   const handleViewAdmin = (admin) => {
     console.log("Admin:", admin);
-
-   
+    navigate(`/viewprofile/${admin.id}`);
   };
 
   /*
@@ -272,24 +274,16 @@ const CurrentAdmin = () => {
 
 
                       <td>
-
-                        <button
-                          type="button"
-                          className="view-button"
-                          onClick={() =>
-                            handleViewAdmin(
-                              admin
-                            )
-                          }
-                        >
-
-                          <FiEye />
-
-                          <span>
-                            عرض
-                          </span>
-
-                        </button>
+<button
+    type="button"
+    className="view-button"
+    onClick={() => handleViewAdmin(admin)}
+  >
+    <FiEye />
+    <div className="view-button-text">
+      <span>عرض</span>
+    </div>
+  </button>
 
                       </td>
 

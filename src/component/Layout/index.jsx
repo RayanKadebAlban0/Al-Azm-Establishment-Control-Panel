@@ -1,5 +1,4 @@
-
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
@@ -9,14 +8,23 @@ import { initReactI18next } from 'react-i18next';
 import Loader from "../main-loader/index";
 import Navbar from "../Navbar/index";
 import SideBar from "../dashboard/side-bar/SideBar";
-// import Footr from "../Footr/index";
 import BreadcrumbComponent from '../common/breadcrumbs';
 import { resources } from '../../assets/locals';
 import { Styles } from './styles';
 
 const projectTitle = "مؤسسة العزم";
 
+i18next.use(initReactI18next).init({
+  interpolation: { escapeValue: false },
+  lng: "ar",
+  resources: resources,
+});
+
 const getPageTitle = (pathname) => {
+  if (pathname.startsWith("/viewprofile")) {
+    return "ملف المشرف الشخصي";
+  }
+
   switch (pathname) {
     case "/controlpanel":
       return "لوحة التحكم";
@@ -53,15 +61,14 @@ const getPageTitle = (pathname) => {
 
 const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const language = useSelector((state) => state.student1.language);
-
+  const language = useSelector((state) => state.student1?.language);
   const location = useLocation();
 
-  i18next.use(initReactI18next).init({
-    interpolation: { escapeValue: false },
-    lng: language || "en",
-    resources: resources,
-  });
+  useEffect(() => {
+    if (language) {
+      i18next.changeLanguage(language);
+    }
+  }, [language]);
 
   return (
     <Suspense fallback={<Loader />}>
@@ -80,11 +87,8 @@ const Layout = () => {
             <div className="outlet_container">
               <Outlet />
             </div>
-            {/* <Footr /> */}
           </main>
         </div>
-
-
       </Styles>
     </Suspense>
   );

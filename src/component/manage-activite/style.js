@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../constants/breakpoints";
 
 export const Styles = styled.div`
   padding: 2px 18px 60px 18px;
@@ -17,11 +18,11 @@ export const Styles = styled.div`
     height: 100%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
-.add_activity_link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
+  .add_activity_link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
   .card_wrapper > div {
     width: 100%;
     height: 100%;
@@ -30,8 +31,8 @@ export const Styles = styled.div`
   .container_filter {
     display: flex;
     gap: 12px;
-  align-items: flex-end;
-  justify-content: space-between;
+    align-items: flex-end;
+    justify-content: space-between;
     flex-wrap: wrap;
     background: transparent;
     padding: 12px;
@@ -71,43 +72,43 @@ export const Styles = styled.div`
     font-size: 13px;
     color: #000000;
   } */
-    .class_date,
-.class_type_activite,
-.class_state {
-  display: flex;
-  flex-direction: column;
-}
+  .class_date,
+  .class_type_activite,
+  .class_state {
+    display: flex;
+    flex-direction: column;
+  }
 
   .manage_date1 .react-datepicker-wrapper {
     width: 100%;
   }
-.manage_date1 .react-datepicker__input-container {
-  width: 100%;
-  height: 42px;
-  border: 1px solid #0a0a0a;
-  border-radius: 14px;
-  background: #fff;
+  .manage_date1 .react-datepicker__input-container {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #0a0a0a;
+    border-radius: 14px;
+    background: #fff;
 
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-  padding: 0 14px;
-}
-.manage_date1 .react-datepicker__calendar-icon {
-  position: static;
-  padding: 0;
-  width: 16px;
-  height: 16px;
-}
-.manage_date1 input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 14px;
-  padding: 0;
-}
+    padding: 0 14px;
+  }
+  .manage_date1 .react-datepicker__calendar-icon {
+    position: static;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+  }
+  .manage_date1 input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    padding: 0;
+  }
 
   .class_button_app_filter {
     background: #c2bebe;
@@ -115,10 +116,10 @@ export const Styles = styled.div`
     height: 42px;
     padding: 0 14px;
     border-radius: 14px;
-     display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     cursor: pointer;
   }
   .class_date1,
@@ -191,19 +192,96 @@ export const Styles = styled.div`
     width: 100%;
   }
 
-  /* responsive tweaks */
-  @media (max-width: 768px) {
-    .container_filter {
-      gap: 8px;
-    }
-    .class_date,
-    .class_type_activite,
-    .class_state {
-      min-width: 120px;
-    }
-  }
   .part1 {
     padding: 0%;
     margin: 0%;
+  }
+.pagination_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    .pagination_btn {
+      background: #ffffff;
+      border: 1px solid #0a0a0a;
+      height: 38px;
+      padding: 0 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: #f0f0f0;
+      }
+    }
+
+    .pagination_page_num {
+      font-weight: 700;
+      font-size: 15px;
+      color: #222;
+    }
+  }
+  /* ========================================================
+     إضافات التجاوب التلقائي (Responsive Adjustments)
+     ======================================================== */
+
+  /* الشاشات المتوسطة (Tablets) */
+  @media (max-width: ${breakpoints.md}) {
+    .container_filter {
+      gap: 12px;
+      justify-content: flex-start;
+    }
+
+    .class_date1,
+    .class_type,
+    .class_state1,
+    .class_button_app_filter {
+      width: 140px;
+    }
+  }
+
+  /* الشاشات الصغيرة (Mobile) */
+  @media (max-width: ${breakpoints.sm}) {
+    padding: 2px 10px 40px 10px;
+
+    .container_button_review {
+      justify-content: center;
+      width: 100%;
+
+      a,
+      .button {
+        width: 100%;
+      }
+    }
+
+    .container_filter {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+
+      .class_date,
+      .class_type_activite,
+      .class_state {
+        width: 100%;
+      }
+
+      .class_date1,
+      .class_type,
+      .class_state1,
+      .class_button_app_filter {
+        width: 100%;
+      }
+    }
   }
 `;

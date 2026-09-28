@@ -96,7 +96,8 @@ const ManageActiviteComponent = () => {
           </button>
         </Link>
       </div>
-      <h4> إدارة الانشطة والفعاليات</h4>
+
+      <h4>إدارة الأنشطة والفعاليات</h4>
 
       {/* قسم الفلتر الديناميكي */}
       <div className='container_filter'>
@@ -140,20 +141,20 @@ const ManageActiviteComponent = () => {
         </div>
 
         <div>
-          <button className='class_button_app_filter' onClick={handleApplyFilter}>
-            <FaCheck style={{ color: 'green', fontSize: '20px' }} /> تطبيق الفلتر
+          <button className='class_button_app_filter btn_apply' onClick={handleApplyFilter}>
+            <FaCheck style={{ color: '#2e7d32', fontSize: '16px' }} /> تطبيق الفلتر
           </button>
         </div>
         <div className='class_button_reapp_filter'>
-          <button className='class_button_app_filter' onClick={handleResetFilter}>
-            <FaTimes style={{ color: 'red', fontSize: '20px' }} /> إعادة التعيين
+          <button className='class_button_app_filter btn_reset' onClick={handleResetFilter}>
+            <FaTimes style={{ color: '#d32f2f', fontSize: '16px' }} /> إعادة تعيين
           </button>
         </div>
       </div>
 
-      <Container className='mt-5'>
+      <Container className='mt-4 p-0'>
         <Row>
-          {isLoading && <p className="text-center">جاري تحميل الأنشطة...</p>}
+          {isLoading && <p className="text-center w-100 my-4">جاري تحميل الأنشطة...</p>}
 
           {!isLoading && Array.isArray(filteredActivities) && filteredActivities.map((activity) => (
             <Col md={4} key={activity.id} className="mb-4">
@@ -163,13 +164,13 @@ const ManageActiviteComponent = () => {
             </Col>
           ))}
 
-          <Col md={4}>
+          <Col md={4} className="mb-4">
             <Link to="/addActivite" className="add_activity_link">
               <div className='add_activite'>
                 <span className='button_add'>+</span>
                 <p className='text'>إضافة نشاط جديد</p>
                 <p className='description'>
-                  قم بإدخال مبادرة أو تدريب أو فعالية جديدة في النظام
+                  قم بإدراج مبادرة أو تدريب أو فعالية جديدة في النظام
                 </p>
               </div>
             </Link>
@@ -177,20 +178,20 @@ const ManageActiviteComponent = () => {
         </Row>
       </Container>
 
-      {/* أزرار التنقل بين الصفحات */}
-      <div className="d-flex justify-content-center align-items-center gap-3 my-4">
+      {/* عناصر الانتقال بين صفحات الأنشطة بوسط الصفحة من تحت */}
+      <div className="pagination_wrapper">
         <button
-          className="class_button_app_filter"
+          className="pagination_btn"
           disabled={currentPage === 1 || isLoading}
           onClick={() => setCurrentPage((prev) => prev - 1)}
         >
           السابق
         </button>
 
-        <span className="fw-bold">الصفحة {currentPage}</span>
+        <span className="pagination_page_num">الصفحة {currentPage}</span>
 
         <button
-          className="class_button_app_filter"
+          className="pagination_btn"
           disabled={!hasMore || currentPage >= lastPage || isLoading}
           onClick={() => setCurrentPage((prev) => prev + 1)}
         >

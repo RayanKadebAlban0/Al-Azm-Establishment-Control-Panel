@@ -65,7 +65,6 @@ button:disabled {
     }
   }
 
-  /* الصفوف المزدوجة */
   .part2,
   .part3,
   .part4,

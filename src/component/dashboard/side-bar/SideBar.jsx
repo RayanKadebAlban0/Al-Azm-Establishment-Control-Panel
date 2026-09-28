@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { MdDashboard } from "react-icons/md";
@@ -13,6 +13,34 @@ import { postRequest } from "../../../services/https.services";
 const SideBar = ({ isOpen: externalIsOpen, setIsOpen: externalSetIsOpen }) => {
   const navigate = useNavigate();
 
+  const [internalIsOpen, setInternalIsOpen] = useState(true);
+  const isSidebarOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+
+  const toggleSidebar = () => {
+    if (typeof externalSetIsOpen === "function") {
+      externalSetIsOpen(!isSidebarOpen);
+    } else {
+      setInternalIsOpen(!internalIsOpen);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        if (typeof externalSetIsOpen === "function") {
+          externalSetIsOpen(false);
+        } else {
+          setInternalIsOpen(false);
+        }
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [externalSetIsOpen]);
+
   const handleLogout = async () => {
     try {
       await postRequest("auth/logout");
@@ -26,19 +54,8 @@ const SideBar = ({ isOpen: externalIsOpen, setIsOpen: externalSetIsOpen }) => {
     }
   };
 
-  const [internalIsOpen, setInternalIsOpen] = useState(true);
-  const isSidebarOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
-
-  const toggleSidebar = () => {
-    if (typeof externalSetIsOpen === "function") {
-      externalSetIsOpen(!isSidebarOpen);
-    } else {
-      setInternalIsOpen(!internalIsOpen);
-    }
-  };
-
   return (
-    <Styles isOpen={isSidebarOpen} dir="rtl">
+    <Styles isOpen={isSidebarOpen}>
       <div className="toggle_btn" onClick={toggleSidebar}>
         <HiOutlineMenuAlt3 />
       </div>

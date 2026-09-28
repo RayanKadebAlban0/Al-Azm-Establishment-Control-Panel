@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../../constants/breakpoints";
 
 export const Styles = styled.div`
   position: fixed;
@@ -108,4 +109,32 @@ export const Styles = styled.div`
       text-decoration: none;
     }
   } 
+
+  @media (max-width: ${breakpoints.md}) {
+    width: 70px !important;
+
+    .nav_link span,
+    .logout_btn span {
+      display: none !important;
+    }
+
+    .nav_link,
+    .logout_btn {
+      justify-content: center !important;
+      padding: 14px 0 !important;
+      gap: 0 !important;
+    }
+
+    .toggle_btn {
+      justify-content: center !important;
+    }
+
+    .logout_container {
+      padding: 10px 5px !important;
+    }
+
+    .logout_btn .class_icon {
+      min-width: 100% !important;
+    }
+  }
 `;

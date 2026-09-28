@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../../src/constants/breakpoints";
 
 export const Styles = styled.div`
   position: fixed;
@@ -12,8 +13,7 @@ export const Styles = styled.div`
   height: 70px;
   padding: 0 25px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
-  direction: rtl; 
-
+  direction: rtl;
   width: 100%;
   box-sizing: border-box;
 
@@ -50,9 +50,8 @@ export const Styles = styled.div`
     }
 
     .class_img_logo img {
-      width: 65px;
-      height: 65px;
-      /* border-radius: 50%; */
+      width: 50px;
+      height: 50px;
       object-fit: cover;
       border: none;
     }
@@ -62,13 +61,13 @@ export const Styles = styled.div`
     width: 290px;
     height: 40px;
     border-radius: 25px;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
     border: 1px solid #000000;
-    margin: 50px;
+    margin: 0; 
 
     .class_search_input {
       outline: none;
@@ -130,14 +129,13 @@ export const Styles = styled.div`
     align-items: center;
     justify-content: space-around;
     width: auto;
-    background-color: #e8e8f0; 
+    background-color: #e8e8f0;
     padding: 6px 16px;
     border-radius: 25px;
     font-size: 1.2rem;
-    gap: 25px;
-    border:solid 1px #0e0d0d ;
+    gap: 20px;
+    border: solid 1px #0e0d0d;
     box-shadow: 0px 3px 3px #4d4c4c;
-
 
     .class_nav_icon_setting {
       margin: 0;
@@ -163,5 +161,50 @@ export const Styles = styled.div`
     height: 44px;
     object-fit: cover;
     border: 1px solid black;
+  }
+
+
+  @media (max-width: ${breakpoints.md}) {
+    padding: 0 15px;
+
+    .part1 {
+      gap: 15px;
+    }
+
+    .class_search {
+      width: 180px;
+
+      .class_search_p {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: ${breakpoints.sm}) {
+    padding: 0 10px;
+
+    .class_logo h3 {
+      display: none; 
+    }
+
+    .class_search {
+      width: 130px;
+      padding: 0 5px;
+
+      .class_search_input {
+        padding: 0 5px;
+        font-size: 0.75rem;
+      }
+    }
+
+    .class_nav_icon {
+      padding: 5px 10px;
+      gap: 10px;
+    }
+
+    .class_nav_image img {
+      width: 36px;
+      height: 36px;
+    }
   }
 `;

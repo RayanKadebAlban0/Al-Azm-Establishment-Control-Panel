@@ -12,6 +12,29 @@ export const Styles = styled.div`
     margin-bottom: 25px;
   }
 
+  .admin_role_hint {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+
+  .permission_error {
+    color: #d32f2f;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .search_dropdown {
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-family: inherit;
+    }
+  }
+
   .main_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -23,11 +46,11 @@ export const Styles = styled.div`
     }
   }
 
-
-  .toggle_button{
+  .toggle_button {
     border: none;
     background-color: #ffffff;
   }
+
   .search_section {
     display: flex;
     flex-direction: column;
@@ -80,7 +103,7 @@ export const Styles = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top:30px ;
+    margin-top: 30px;
     border: 1px solid #000000;
     width: 100%;
     border-radius: 12px;
@@ -139,6 +162,7 @@ export const Styles = styled.div`
     padding: 2px;
     border-radius: 8px;
     background-color: #ffffff;
+
     button {
       flex: 1;
       padding: 10px;
@@ -154,6 +178,11 @@ export const Styles = styled.div`
         border: 1px solid #000;
         border-color: #000;
         color: #000;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
       }
     }
   }
@@ -178,8 +207,13 @@ export const Styles = styled.div`
       align-items: center;
       justify-content: center;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background: #ddd;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
       }
     }
 
@@ -192,6 +226,11 @@ export const Styles = styled.div`
       font-size: 16px;
       font-weight: bold;
       outline: none;
+
+      &:disabled {
+        background-color: #f5f5f5;
+        cursor: not-allowed;
+      }
     }
   }
 
@@ -237,7 +276,6 @@ export const Styles = styled.div`
     }
   }
 
-  /* زر الإشعار والتأكيد */
   .bottom_actions {
     display: flex;
     flex-direction: column;
@@ -316,7 +354,7 @@ export const Styles = styled.div`
       cursor: pointer;
       transition: all 0.2s ease;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background: #000;
         color: #fff;
       }
@@ -325,6 +363,59 @@ export const Styles = styled.div`
         border-color: #ccc;
         color: #ccc;
         cursor: not-allowed;
+      }
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    padding: 10px;
+
+    .page_title {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .admin_role_hint {
+      text-align: center;
+    }
+
+    .user_card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      .points_badge {
+        width: 100%;
+        text-align: right;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          display: inline-block;
+          padding: 2px 8px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .action_type_buttons {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .bottom_actions {
+      .toggle_wrapper {
+        justify-content: center;
+      }
+
+      .submit_btn {
+        width: 100%;
       }
     }
   }

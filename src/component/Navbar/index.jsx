@@ -10,7 +10,6 @@ import face from "../../assets/images/face.jpg";
 import Alazem from "../../assets/images/Alazem.jpg";
 
 const Navbar = ({ issidebar, marginRight }) => {
-  // قراءة معرّف الأدمن الفعلي المسجل دخول
   const currentAdminId = localStorage.getItem("adminId") || localStorage.getItem("userId") || 6;
 
   const [display, setDisplay] = useState(false);

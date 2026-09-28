@@ -15,9 +15,7 @@ export const Styles = styled.div`
     padding: 10px 24px 50px;
   }
 
-  /* =========================
-     Tabs
-  ========================== */
+
 
   .tabs-container {
     width: 370px;
@@ -64,9 +62,7 @@ export const Styles = styled.div`
     width: 100%;
   }
 
-  /* =========================
-     Current Admin
-  ========================== */
+
 
   .current-admin-container {
     width: 100%;
@@ -79,6 +75,7 @@ export const Styles = styled.div`
     border: 1px solid #222;
 
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 
     background: #fff;
   }
@@ -86,11 +83,11 @@ export const Styles = styled.div`
   .admins-table {
     width: 100%;
 
-    min-width: 1000px;
+    min-width: 900px; 
 
     border-collapse: collapse;
 
-    table-layout: fixed;
+    table-layout: auto; 
 
     direction: rtl;
   }
@@ -102,7 +99,7 @@ export const Styles = styled.div`
   .admins-table th {
     height: 62px;
 
-    padding: 10px 8px;
+    padding: 10px 12px;
 
     border-bottom: 1px solid #111;
 
@@ -119,7 +116,7 @@ export const Styles = styled.div`
   .admins-table td {
     height: 48px;
 
-    padding: 7px 8px;
+    padding: 8px 12px;
 
     border-bottom: 1px solid #111;
 
@@ -131,7 +128,7 @@ export const Styles = styled.div`
 
     color: #111;
 
-    white-space: nowrap;
+    white-space: nowrap; 
   }
 
   .admins-table tbody tr:last-child td {
@@ -146,9 +143,7 @@ export const Styles = styled.div`
     font-weight: 700;
   }
 
-  /* =========================
-     Status
-  ========================== */
+
 
   .status-control {
     width: 64px;
@@ -209,9 +204,7 @@ export const Styles = styled.div`
     font-size: 12px;
   }
 
-  /* =========================
-     View button
-  ========================== */
+
 
   .view-button {
     border: none;
@@ -241,9 +234,7 @@ export const Styles = styled.div`
     opacity: 0.7;
   }
 
-  /* =========================
-     Table Footer
-  ========================== */
+
 
   .table-footer {
     width: 100%;
@@ -253,7 +244,9 @@ export const Styles = styled.div`
     padding: 25px 22px;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     direction: ltr;
@@ -263,6 +256,7 @@ export const Styles = styled.div`
 
   .pagination {
     display: flex;
+
     align-items: center;
 
     gap: 8px;
@@ -270,6 +264,7 @@ export const Styles = styled.div`
 
   .pagination button {
     width: 40px;
+
     height: 40px;
 
     border: 1px solid #ececec;
@@ -283,10 +278,13 @@ export const Styles = styled.div`
     cursor: pointer;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     font-family: inherit;
+
     font-size: 14px;
   }
 
@@ -296,6 +294,7 @@ export const Styles = styled.div`
 
   .pagination button:disabled {
     opacity: 0.35;
+
     cursor: default;
   }
 
@@ -321,9 +320,7 @@ export const Styles = styled.div`
     font-size: 14px;
   }
 
-  /* =========================
-     Loading / Error
-  ========================== */
+
 
   .admins-state {
     width: 100%;
@@ -331,9 +328,11 @@ export const Styles = styled.div`
     min-height: 250px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 15px;
@@ -365,10 +364,6 @@ export const Styles = styled.div`
     color: #777 !important;
   }
 
-  /* =========================
-     Add Admin old styles
-     حتى لا نخرب الفورم الحالي
-  ========================== */
 
   .description {
     margin: 0;
@@ -378,6 +373,7 @@ export const Styles = styled.div`
   .class_date,
   .class_state {
     display: flex;
+
     flex-direction: column;
   }
 
@@ -391,6 +387,7 @@ export const Styles = styled.div`
 
   .class_type_user {
     display: flex;
+
     flex-direction: row;
 
     width: 95%;
@@ -403,6 +400,7 @@ export const Styles = styled.div`
 
     .card {
       border-radius: 20px;
+
       border: 1px solid black;
     }
 
@@ -416,6 +414,7 @@ export const Styles = styled.div`
       width: 300px;
 
       display: flex;
+
       flex-direction: column;
 
       justify-content: center;
@@ -428,6 +427,7 @@ export const Styles = styled.div`
         position: absolute;
 
         top: 0;
+
         left: 10px;
       }
     }
@@ -446,6 +446,7 @@ export const Styles = styled.div`
 
     .class_field {
       display: flex;
+
       flex-direction: column;
 
       padding: 10px;
@@ -521,6 +522,7 @@ export const Styles = styled.div`
 
     .left_container_data {
       margin-right: auto;
+
       margin-left: auto;
 
       padding: 10px;
@@ -537,22 +539,27 @@ export const Styles = styled.div`
         margin: auto;
 
         margin-top: 10px;
+
         margin-bottom: 0;
       }
 
       .container_camera {
         width: 70px;
+
         height: 70px;
 
         margin: auto;
+
         margin-top: 20px;
 
         border: 4px solid white;
+
         border-radius: 50%;
 
         display: flex;
 
         justify-content: center;
+
         align-items: center;
 
         background-color: rgb(212, 218, 219);
@@ -566,9 +573,6 @@ export const Styles = styled.div`
     }
   }
 
-  /* =========================
-     Responsive
-  ========================== */
 
   @media (max-width: 900px) {
     .admin-page {
@@ -581,11 +585,26 @@ export const Styles = styled.div`
 
     .table-footer {
       gap: 15px;
-      flex-wrap: wrap;
     }
 
     .class_type_user {
       flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pagination {
+      gap: 4px;
+
+      button {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+      }
+    }
+
+    .table-result {
+      font-size: 12px;
     }
   }
 `;
